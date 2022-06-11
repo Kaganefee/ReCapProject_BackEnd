@@ -20,7 +20,7 @@ namespace ConsoleUI
         }
         private static void Update()
         {
-            Car car1 = new Car { CarId = 3, CarBrandId = 5, CarColorId = 5, CarDailyPrice = 400, CarModelYear = 2017, CarName = "Opel" };
+            Car car1 = new Car { CarId = 3, BrandId = 5, ColorId = 5, CarDailyPrice = 400, CarModelYear = 2017, CarName = "Opel" };
             CarManager carManager = new CarManager(new EfCarDal());
             var result = carManager.Update(car1);
             Console.WriteLine(result.Message);
@@ -30,7 +30,7 @@ namespace ConsoleUI
 
         private static void Delete()
         {
-            Car car1 = new Car { CarId = 3, CarBrandId = 2, CarColorId = 5, CarDailyPrice = 300, CarModelYear = 2016, CarName="Mazda" };
+            Car car1 = new Car { CarId = 3, BrandId = 2, ColorId = 5, CarDailyPrice = 300, CarModelYear = 2016, CarName="Mazda" };
             CarManager carManager = new CarManager(new EfCarDal());
             var result=carManager.Delete(car1);
             Console.WriteLine(result.Message);
@@ -39,13 +39,9 @@ namespace ConsoleUI
         }
         private static void Add()
         {
-            Car car1 = new Car { CarId = 11, CarBrandId = 2, CarColorId = 5, CarDailyPrice = 300, CarModelYear = 2016, CarName = "Mazda" };
+            Car car1 = new Car {CarId=2, CarDailyPrice = 500, CarModelYear = 2016, CarName = "Mazda",BrandId=1,ColorId=1 };
             CarManager carManager = new CarManager(new EfCarDal());
-            BrandManager brandManager = new BrandManager(new EfBrandDal());
-            Brand brand = new Brand();
-            brand.BrandId = car1.CarBrandId;
             var result = carManager.Insert(car1);
-            var result2 = brandManager.Add(brand);
             Console.WriteLine(result.Message);
         }
 

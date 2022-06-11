@@ -15,10 +15,10 @@ namespace DataAccess.Concrete.InMemory
         public InMemoryCarDal()
         {
             _cars = new List<Car> {
-            new Car { CarId = 1, CarBrandId = 1, CarColorId = 1, CarDailyPrice = 200, CarModelYear = 2015 },
-            new Car { CarId = 2, CarBrandId = 2, CarColorId = 3, CarDailyPrice = 220, CarModelYear =2017 },
-            new Car { CarId = 3, CarBrandId = 2, CarColorId = 4, CarDailyPrice = 240, CarModelYear = 2020},
-            new Car { CarId = 4, CarBrandId = 1, CarColorId = 2, CarDailyPrice = 280, CarModelYear = 2022 }
+            new Car { CarId = 1, BrandId = 1, ColorId = 1, CarDailyPrice = 200, CarModelYear = 2015 },
+            new Car { CarId = 2, BrandId = 2, ColorId = 3, CarDailyPrice = 220, CarModelYear =2017 },
+            new Car { CarId = 3, BrandId = 2, ColorId = 4, CarDailyPrice = 240, CarModelYear = 2020},
+            new Car { CarId = 4, BrandId = 1, ColorId = 2, CarDailyPrice = 280, CarModelYear = 2022 }
         };
         }
 
@@ -61,8 +61,8 @@ namespace DataAccess.Concrete.InMemory
         public void Update(Car car)
         {
             Car carToUpdate = _cars.SingleOrDefault(p => p.CarId == car.CarId);
-            carToUpdate.CarBrandId = car.CarBrandId;
-            carToUpdate.CarColorId = car.CarColorId;
+            carToUpdate.BrandId = car.BrandId;
+            carToUpdate.ColorId = car.ColorId;
             carToUpdate.CarDailyPrice = car.CarDailyPrice;
             carToUpdate.CarModelYear = car.CarModelYear;
         }
