@@ -17,6 +17,7 @@ namespace ConsoleUI
             //Add();
             //UserAdd();
             //CustomerAdd();
+            RentalAdd();
 
             //Test();
         }
@@ -86,7 +87,7 @@ namespace ConsoleUI
         }
         private static void UserAdd()
         {
-            User user1 = new User() { UserId = 3, Email = "asdasdasd@gmail.com", FirstName = "kaan", LastName = "EFE", Password = "123456789" };
+            User user1 = new User() { Email = "asdasdasd@gmail.com", FirstName = "kaan", LastName = "EFE", Password = "123456789" };
             UserManager userManager = new UserManager(new EfUserDal());
             var result = userManager.Add(user1);
 
@@ -94,10 +95,28 @@ namespace ConsoleUI
         }
         private static void CustomerAdd()
         {
-            Customer customer1 = new Customer() { CompanyName = "armasan", CustomerId = 1};
+            Customer customer1 = new Customer() { CompanyName = "Yeni nesil"};
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             var result = customerManager.Add(customer1);
         }
+        
+        private static void RentalAdd()
+        {
+            Rental rental1 = new Rental() { UserId = 1, CarId = 1, RentDate = "12.12.22",ReturnDate="15.12.2022" };
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.Add(rental1);
+            if (result.Success == true)
+            {
+               
 
+                    Console.WriteLine(rental1.CarId + "/" + rental1.Id );
+                
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
+        }
     }
 }
